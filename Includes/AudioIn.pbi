@@ -41,8 +41,16 @@
 ; - V1.000 (14.10.2014)
 ;   - Everything done
 ; 
+; - V1.002 (24.10.2014)
+;   - Check if "Threadsafe" is enabled
 ; 
 ; 
+; ##################################################### Check #######################################################
+
+CompilerIf Not #PB_Compiler_Thread
+  CompilerError "Threadsafe isn't enabled"
+CompilerEndIf
+
 ; ##################################################### Begin #######################################################
 
 DeclareModule AudioIn
@@ -50,7 +58,7 @@ DeclareModule AudioIn
   
   ; ##################################################### Constants #################################################
   
-  #Version = 1000
+  #Version = 1002
   
   ; ##################################################### Structures ################################################
   
@@ -326,8 +334,7 @@ Module AudioIn
   
 EndModule
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 237
-; FirstLine = 269
+; CursorPosition = 60
 ; Folding = --
 ; EnableUnicode
 ; EnableThread

@@ -41,8 +41,17 @@
 ; - V1.000 (14.10.2014)
 ;   - Everything done
 ; 
+; - V1.002 (24.10.2014)
+;   - Added waveOutPause_ to Deinitialize. (To fix a crash)
+;   - Check if "Threadsafe" is enabled
 ; 
 ; 
+; ##################################################### Check #######################################################
+
+CompilerIf Not #PB_Compiler_Thread
+  CompilerError "Threadsafe isn't enabled"
+CompilerEndIf
+
 ; ##################################################### Begin #######################################################
 
 DeclareModule AudioOut
@@ -50,7 +59,7 @@ DeclareModule AudioOut
   
   ; ##################################################### Constants #################################################
   
-  #Version = 1000
+  #Version = 1002
   
   ; ##################################################### Structures ################################################
   
@@ -260,6 +269,10 @@ Module AudioOut
       ProcedureReturn #False
     EndIf
     
+    waveOutPause_(*AudioOut\hwo)
+    
+    ;waveOutReset_(*AudioOut\hwo)
+    
     ForEach *AudioOut\outHdr()
       waveOutUnprepareHeader_(*AudioOut\hwo, *AudioOut\outHdr(), SizeOf(WAVEHDR))
       FreeMemory(*AudioOut\outHdr()\lpData)
@@ -380,8 +393,7 @@ Module AudioOut
   
 EndModule
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 25
-; FirstLine = 48
+; CursorPosition = 61
 ; Folding = ---
 ; EnableUnicode
 ; EnableThread
