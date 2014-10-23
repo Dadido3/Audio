@@ -56,22 +56,24 @@ Procedure Notifier_CallBack(*AudioOut)
   While AudioOut::GetQueuedBlocks(*AudioOut) <= 3
     
     Temp_Size = AudioOut::GetBufferBlocksize(*AudioOut)
-    *Temp = AllocateMemory(Temp_Size)
-    
-    Define Left.d, Right.d, i
-    For i = 0 To Temp_Size / 4 - 1
-      Left = Sin(Rotation) * Amplitude
-      Right = Sin(Rotation) * Amplitude
+    If Temp_Size > 0
+      *Temp = AllocateMemory(Temp_Size)
       
-      PokeW(*Temp + i*4    , Left*32767)
-      PokeW(*Temp + i*4 + 2, Right*32767)
+      Define Left.d, Right.d, i
+      For i = 0 To Temp_Size / 4 - 1
+        Left = Sin(Rotation) * Amplitude
+        Right = Sin(Rotation) * Amplitude
+        
+        PokeW(*Temp + i*4    , Left*32767)
+        PokeW(*Temp + i*4 + 2, Right*32767)
+        
+        Rotation + 2.0*#PI / #Samplerate * Frequency
+      Next
       
-      Rotation + 2.0*#PI / #Samplerate * Frequency
-    Next
-    
-    AudioOut::Write_Data(Main\AudioOut, *Temp, Temp_Size)
-    
-    FreeMemory(*Temp)
+      AudioOut::Write_Data(Main\AudioOut, *Temp, Temp_Size)
+      
+      FreeMemory(*Temp)
+    EndIf
     
   Wend
 EndProcedure
@@ -86,7 +88,7 @@ ForEach AudioOut::Device()
   Debug PeekS(AudioOut::@Device()\szPname)
 Next
 
-Main\AudioOut = AudioOut::Initialize(6, #Samplerate, 2, 16, @Notifier_CallBack())
+Main\AudioOut = AudioOut::Initialize(#WAVE_MAPPER, #Samplerate, 2, 16, @Notifier_CallBack())
 
 Notifier_CallBack(Main\AudioOut)
 
@@ -121,9 +123,9 @@ Until Main\Quit
 AudioOut::Deinitialize(Main\AudioOut)
 
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 38
+; CursorPosition = 88
+; FirstLine = 50
 ; Folding = -
 ; EnableUnicode
-; EnableThread
 ; EnableXP
 ; DisableDebugger
