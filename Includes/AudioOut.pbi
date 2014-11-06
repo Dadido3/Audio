@@ -45,7 +45,7 @@
 ;   - Added waveOutPause_ to Deinitialize. (To fix a crash)
 ;   - Check if "Threadsafe" is enabled
 ; 
-; - V1.005 (06.11.2014)
+; - V1.006 (06.11.2014)
 ;   - Check arguments of Initialize()
 ;   - Playback of waveform-data which isn't a multiple of the blocksize is working
 ;   - Little fixes here and there
@@ -63,7 +63,7 @@ DeclareModule AudioOut
   
   ; ##################################################### Constants #################################################
   
-  #Version = 1005
+  #Version = 1006
   
   ; ##################################################### Structures ################################################
   
@@ -410,7 +410,7 @@ Module AudioOut
   
 EndModule
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 65
+; CursorPosition = 47
 ; FirstLine = 21
 ; Folding = ---
 ; EnableUnicode

@@ -44,7 +44,7 @@
 ; - V1.002 (24.10.2014)
 ;   - Check if "Threadsafe" is enabled
 ; 
-; - V1.005 (06.11.2014)
+; - V1.006 (06.11.2014)
 ;   - Check arguments of Initialize()
 ; 
 ; ##################################################### Check #######################################################
@@ -60,7 +60,7 @@ DeclareModule AudioIn
   
   ; ##################################################### Constants #################################################
   
-  #Version = 1005
+  #Version = 1006
   
   ; ##################################################### Structures ################################################
   
@@ -345,7 +345,8 @@ Module AudioIn
   
 EndModule
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 62
+; CursorPosition = 47
+; FirstLine = 21
 ; Folding = --
 ; EnableUnicode
 ; EnableThread
