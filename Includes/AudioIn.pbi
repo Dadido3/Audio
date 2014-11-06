@@ -44,6 +44,8 @@
 ; - V1.002 (24.10.2014)
 ;   - Check if "Threadsafe" is enabled
 ; 
+; - V1.005 (06.11.2014)
+;   - Check arguments of Initialize()
 ; 
 ; ##################################################### Check #######################################################
 
@@ -198,6 +200,15 @@ Module AudioIn
     Protected *AudioIn.AudioIn = AllocateStructure(AudioIn)
     Protected i
     
+    ; #### Check arguments
+    If Buffer_Blocksize <= 0
+      ProcedureReturn #Null
+    EndIf
+    
+    If Buffer_Blocks <= 0
+      ProcedureReturn #Null
+    EndIf
+    
     wfx\wFormatTag      = #WAVE_FORMAT_PCM
     wfx\nChannels       = Channels
     wfx\wBitsPerSample  = Bits
@@ -334,7 +345,8 @@ Module AudioIn
   
 EndModule
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 60
+; CursorPosition = 47
+; FirstLine = 33
 ; Folding = --
 ; EnableUnicode
 ; EnableThread

@@ -45,6 +45,10 @@
 ;   - Added waveOutPause_ to Deinitialize. (To fix a crash)
 ;   - Check if "Threadsafe" is enabled
 ; 
+; - V1.005 (06.11.2014)
+;   - Check arguments of Initialize()
+;   - Playback of waveform-data which isn't a multiple of the blocksize is working
+;   - Little fixes here and there
 ; 
 ; ##################################################### Check #######################################################
 
@@ -161,16 +165,17 @@ Module AudioOut
   
   Procedure Write(*AudioOut.AudioOut, *outHdr.WAVEHDR)
     Protected Temp_Size.i
-    Protected Amount.i = *outHdr\dwBufferLength
+    Protected Amount.i = *AudioOut\Buffer_Blocksize
     Protected *Destination = *outHdr\lpData
+    Protected Bytes_Written.i
     
-    ; #### Check if the *outHdr isn't in the playback queue.
-    If *outHdr\dwUser
+    ; #### Check if there is data
+    If *AudioOut\Queued_Data <= 0
       ProcedureReturn #False
     EndIf
     
-    ; #### Check if there is enough data
-    If *AudioOut\Queued_Data < Amount
+    ; #### Check if the *outHdr isn't in the playback queue.
+    If *outHdr\dwUser
       ProcedureReturn #False
     EndIf
     
@@ -191,7 +196,10 @@ Module AudioOut
       *Destination + Temp_Size
       Amount - Temp_Size
       *AudioOut\Queued_Data - Temp_Size
+      Bytes_Written + Temp_Size
     Wend
+    
+    *outHdr\dwBufferLength = Bytes_Written ; dwBufferLength isn't larger than *AudioOut\Buffer_Blocksize
     
     *outHdr\dwUser = #True
     
@@ -233,6 +241,15 @@ Module AudioOut
     Protected wfx.WAVEFORMATEX ; wfx.WAVEFORMATEX identifies the desired format for recording waveform-audio data.
     Protected *AudioOut.AudioOut = AllocateStructure(AudioOut)
     Protected i
+    
+    ; #### Check arguments
+    If Buffer_Blocksize <= 0
+      ProcedureReturn #Null
+    EndIf
+    
+    If Buffer_Blocks <= 0
+      ProcedureReturn #Null
+    EndIf
     
     wfx\wFormatTag      = #WAVE_FORMAT_PCM
     wfx\nChannels       = Channels
@@ -393,7 +410,7 @@ Module AudioOut
   
 EndModule
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 61
+; CursorPosition = 397
 ; Folding = ---
 ; EnableUnicode
 ; EnableThread
