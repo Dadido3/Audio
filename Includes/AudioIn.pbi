@@ -60,7 +60,7 @@ DeclareModule AudioIn
   
   ; ##################################################### Constants #################################################
   
-  #Version = 1002
+  #Version = 1005
   
   ; ##################################################### Structures ################################################
   
@@ -345,8 +345,7 @@ Module AudioIn
   
 EndModule
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 47
-; FirstLine = 33
+; CursorPosition = 62
 ; Folding = --
 ; EnableUnicode
 ; EnableThread

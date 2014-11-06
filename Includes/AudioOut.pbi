@@ -63,7 +63,7 @@ DeclareModule AudioOut
   
   ; ##################################################### Constants #################################################
   
-  #Version = 1002
+  #Version = 1005
   
   ; ##################################################### Structures ################################################
   
@@ -410,7 +410,8 @@ Module AudioOut
   
 EndModule
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 397
+; CursorPosition = 65
+; FirstLine = 21
 ; Folding = ---
 ; EnableUnicode
 ; EnableThread
