@@ -90,6 +90,11 @@ Next
 
 Main\AudioOut = AudioOut::Initialize(#WAVE_MAPPER, #Samplerate, 2, 16, @Notifier_CallBack())
 
+If Not Main\AudioOut
+  Debug AudioOut::GetError()
+  End
+EndIf
+
 Notifier_CallBack(Main\AudioOut)
 
 ; ##################################################### Main ########################################################
@@ -123,9 +128,9 @@ Until Main\Quit
 AudioOut::Deinitialize(Main\AudioOut)
 
 ; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 88
-; FirstLine = 50
+; CursorPosition = 57
+; FirstLine = 34
 ; Folding = -
 ; EnableUnicode
+; EnableThread
 ; EnableXP
-; DisableDebugger

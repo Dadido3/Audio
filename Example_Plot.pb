@@ -104,6 +104,11 @@ Next
 
 Main\AudioIn = AudioIn::Initialize(#WAVE_MAPPER, 44100, 2, 16, @Notifier_CallBack())
 
+If Not Main\AudioIn
+  Debug AudioIn::GetError()
+  End
+EndIf
+
 AudioIn::Start(Main\AudioIn)
 
 ; ##################################################### Main ########################################################
@@ -137,7 +142,7 @@ AudioIn::Deinitialize(Main\AudioIn)
 
 ; IDE Options = PureBasic 5.30 (Windows - x64)
 ; CursorPosition = 104
-; FirstLine = 79
+; FirstLine = 78
 ; Folding = -
 ; EnableUnicode
 ; EnableThread
