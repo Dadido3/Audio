@@ -133,7 +133,7 @@ Module AudioOut
     Protected Text.s
     
     Text = Space(#MAXERRORLENGTH)
-    waveOutGetErrorText_(Last_Error, Text, #MAXERRORLENGTH)
+    waveOutGetErrorText_(Last_Error, @Text, #MAXERRORLENGTH)
     
     ProcedureReturn Text
   EndProcedure
@@ -409,9 +409,9 @@ Module AudioOut
   EndProcedure
   
 EndModule
-; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 47
-; FirstLine = 21
+; IDE Options = PureBasic 5.40 LTS Beta 1 (Windows - x64)
+; CursorPosition = 135
+; FirstLine = 131
 ; Folding = ---
 ; EnableUnicode
 ; EnableThread

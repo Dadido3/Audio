@@ -107,6 +107,7 @@ Repeat
         Select EventGadget()
           Case Main_Window\TrackBar[0]
             Frequency = GetGadgetState(Main_Window\TrackBar[0])
+            Debug Frequency
             
           Case Main_Window\TrackBar[1]
             Amplitude = GetGadgetState(Main_Window\TrackBar[1]) / 1000
@@ -127,9 +128,9 @@ Until Main\Quit
 
 AudioOut::Deinitialize(Main\AudioOut)
 
-; IDE Options = PureBasic 5.30 (Windows - x64)
-; CursorPosition = 57
-; FirstLine = 34
+; IDE Options = PureBasic 5.31 (Windows - x64)
+; CursorPosition = 12
+; FirstLine = 12
 ; Folding = -
 ; EnableUnicode
 ; EnableThread
