@@ -1,29 +1,26 @@
 ﻿; ##################################################### License / Copyright #########################################
 ;     
-; This is free And unencumbered software released into the public domain.
-; 
-; Anyone is free To copy, modify, publish, use, compile, sell, Or
-; distribute this software, either in source code form Or As a compiled
-; binary, For any purpose, commercial Or non-commercial, And by any
-; means.
-; 
-; In jurisdictions that recognize copyright laws, the author Or authors
-; of this software dedicate any And all copyright interest in the
-; software To the public domain. We make this dedication For the benefit
-; of the public at large And To the detriment of our heirs And
-; successors. We intend this dedication To be an overt act of
-; relinquishment in perpetuity of all present And future rights To this
-; software under copyright law.
-; 
-; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-; EXPRESS Or IMPLIED, INCLUDING BUT Not LIMITED To THE WARRANTIES OF
-; MERCHANTABILITY, FITNESS For A PARTICULAR PURPOSE And NONINFRINGEMENT.
-; IN NO EVENT SHALL THE AUTHORS BE LIABLE For ANY CLAIM, DAMAGES Or
-; OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT Or OTHERWISE,
-; ARISING FROM, OUT OF Or IN CONNECTION With THE SOFTWARE Or THE USE Or
-; OTHER DEALINGS IN THE SOFTWARE.
-; 
-; For more information, please refer To <http://unlicense.org>
+;     The MIT License (MIT)
+;     
+;     Copyright (c) 2014-2020  David Vogel
+;     
+;     Permission is hereby granted, free of charge, To any person obtaining a copy
+;     of this software And associated documentation files (the "Software"), To deal
+;     in the Software without restriction, including without limitation the rights
+;     To use, copy, modify, merge, publish, distribute, sublicense, And/Or sell
+;     copies of the Software, And To permit persons To whom the Software is
+;     furnished To do so, subject To the following conditions:
+;     
+;     The above copyright notice And this permission notice shall be included in all
+;     copies Or substantial portions of the Software.
+;     
+;     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS Or
+;     IMPLIED, INCLUDING BUT Not LIMITED To THE WARRANTIES OF MERCHANTABILITY,
+;     FITNESS For A PARTICULAR PURPOSE And NONINFRINGEMENT. IN NO EVENT SHALL THE
+;     AUTHORS Or COPYRIGHT HOLDERS BE LIABLE For ANY CLAIM, DAMAGES Or OTHER
+;     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT Or OTHERWISE, ARISING FROM,
+;     OUT OF Or IN CONNECTION With THE SOFTWARE Or THE USE Or OTHER DEALINGS IN THE
+;     SOFTWARE.
 ; 
 ; Created by David Vogel (Dadido3)
 ; http://github.com/Dadido3
